@@ -8,5 +8,7 @@ import com.seguranca.trabalho.model.Usuario;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer>{
 	
-	//public boolean findUsuario(String email, String senha);
+	Usuario findByEmail(String email);
+	
+	
 }

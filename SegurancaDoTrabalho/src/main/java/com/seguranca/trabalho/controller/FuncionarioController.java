@@ -18,7 +18,7 @@ import com.seguranca.trabalho.service.FuncionarioService;
 import com.seguranca.trabalho.service.validator.MensagemValidacaoException;
 
 @RestController
-@RequestMapping(value="/workSecutiry")
+@RequestMapping(value="/workSecurity")
 public class FuncionarioController {
 	
 	@Autowired

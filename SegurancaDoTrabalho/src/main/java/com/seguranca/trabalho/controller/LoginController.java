@@ -22,14 +22,8 @@ public class LoginController {
 
 	@RequestMapping("efetuaLogin")
 	public String efetuaLogin(Usuario usuario, HttpSession session) {
-//		if(ur.findUsuario(usuario.email, usuario.senha)) {
-//	        session.setAttribute("usuarioLogado", usuario);
-//	        return "menu";
-//	    } else {
-//	    	return "redirect:loginForm";
-//	    }
 
-		if (ur.findById(usuario.getId()) != null) {
+		if (ur.findById(usuario.id) != null) {
 			System.out.println("Logado Com Sucesso!");
 			return "Logado Com Sucesso";
 		} else {

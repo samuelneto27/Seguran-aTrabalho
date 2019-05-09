@@ -25,44 +25,29 @@ public class Usuario{
 	public String email;
 	
 	@NotNull
-	@Column(name = "nomeCompleto")
-	public String nomeCompleto;
+	@Column(name = "primeiroNome")
+	public String primeiroNome;
+	
+	@NotNull
+	@Column(name = "segundoNome")
+	public String segundoNome;
+	
+	@NotNull
+	@Column(name = "cpf")
+	public String cpf;
+	
+	@NotNull
+	@Column(name = "rg")
+	public String rg;
+	
+	@NotNull
+	@Column(name = "celular")
+	public String celular;
 	
 	@NotNull
 	@Column(name = "senha")
 	public String senha;
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getNomeCompleto() {
-		return nomeCompleto;
-	}
-
-	public void setNomeCompleto(String nomeCompleto) {
-		this.nomeCompleto = nomeCompleto;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
 	
 	
 }
