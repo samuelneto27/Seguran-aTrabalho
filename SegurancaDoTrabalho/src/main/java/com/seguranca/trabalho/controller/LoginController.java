@@ -1,35 +1,40 @@
 package com.seguranca.trabalho.controller;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.seguranca.trabalho.model.Usuario;
 import com.seguranca.trabalho.repository.UsuarioRepository;
 
-@Controller
+@RestController
+@RequestMapping(value = "/workSecurity/login")
 public class LoginController {
 
 	@Autowired
 	UsuarioRepository ur;
 
-	@RequestMapping("loginForm")
+	@RequestMapping("/loginForm") 
 	public String loginForm() {
 		return "formulario-login";
 	}
 
-	@RequestMapping("efetuaLogin")
-	public String efetuaLogin(Usuario usuario, HttpSession session) {
+	@PostMapping("/efetuaLogin")
+	public boolean efetuaLogin(@Valid @RequestBody Usuario usuario) {
 
-		if (ur.findById(usuario.id) != null) {
+		if (!ur.checkLogin(usuario.email,usuario.senha).isEmpty()) {
 			System.out.println("Logado Com Sucesso!");
-			return "Logado Com Sucesso";
+			return true;
 		} else {
 			System.out.println("Erro AO Logar");
-			return "Erro Ao Logar";
+			return false;
 		}
+		
 
 	}
 
